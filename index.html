@@ -116,13 +116,11 @@
     .cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px auto 0;align-items:start;max-width:600px}
     .card{
       position:relative;border-radius:14px;overflow:hidden;background:transparent;border:1px solid #ffffff14;
-      aspect-ratio:16/9;           /* giữ khung ổn định */
+      aspect-ratio:16/9;
     }
     .card[data-url]{cursor:pointer}
-    /* Ảnh/GIF fill khung */
     .card img{display:block;width:100%;height:100%;object-fit:cover;image-rendering:auto}
 
-    /* Badge */
     .badge{
       position:absolute; left:8px; bottom:8px;
       padding:8px 12px; background:transparent; border:none; border-radius:12px;
@@ -135,18 +133,12 @@
       width:22px;height:22px;display:block;object-fit:contain;
       border-radius:8px; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset;
     }
-
-    /* ép mọi màu → trắng tinh */
     .socials a .ico.base{
       filter: grayscale(1) saturate(0) brightness(0) invert(1) contrast(1.25);
       transition: filter .2s ease, opacity .2s ease;
     }
-    /* hover trả về màu vàng gốc */
-    .socials a:hover .ico.base{
-      filter: none;
-    }
+    .socials a:hover .ico.base{ filter: none; }
 
-    /* Meta row + tooltips */
     .cards + .card-meta{max-width:600px;margin:12px auto 0;display:flex;gap:12px;align-items:center;justify-content:flex-end}
     .card-meta .heart{color:#ff8aa0}
     .tooltip{position:relative}
@@ -165,7 +157,6 @@
     .controls button{border:0;background:transparent;color:#fff;width:30px;height:30px;border-radius:10px;border:1px solid #ffffff22;cursor:pointer}
     .controls button:hover{background:#ffffff10}
 
-    /* Volume group: mở rộng khi hover/focus, thu gọn khi rời */
     .volume-group{display:flex; align-items:center; gap:8px; position:relative}
     .vol{
       width:0; opacity:0; transform:translateX(-8px);
@@ -180,7 +171,6 @@
       width:120px; opacity:1; transform:translateX(0);
       pointer-events:auto;
     }
-    /* Range track/thumb */
     .seek,.vol{-webkit-appearance:none;appearance:none;height:6px;background:#ffffff22;border-radius:999px;outline:none}
     .seek::-webkit-slider-thumb,.vol::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px #ffffff33}
     .vol::-webkit-slider-thumb{width:12px;height:12px}
@@ -208,7 +198,6 @@
   <!-- Overlay -->
   <div id="gate" class="gate" tabindex="0" role="button" aria-label="Enter site">
     <div class="gate-inner">
-      <!-- Clover logo -->
       <svg class="bc-logo" viewBox="0 0 256 256" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M120.7 127.3c-10.5 21.1-41.6 26.2-57.1 15.5-15.6-10.7-16.1-36.7 0-52.7 16.1-16 41.5-15.4 52.2 0 10.7 15.5 5.7 46.6 4.9 37.2zM135.3 127.3c10.5 21.1 41.6 26.2 57.1 15.5 15.6-10.7 16.1-36.7 0-52.7-16.1-16-41.5-15.4-52.2 0-10.7 15.5-5.7 46.6-4.9 37.2zM127.9 135.3c21.1 10.5 26.2 41.6 15.5 57.1-10.7 15.6-36.7 16.1-52.7 0-16-16.1-15.4-41.5 0-52.2 15.5-10.7 46.6-5.7 37.2-4.9zM128.1 119.7c-21.1-10.5-26.2-41.6-15.5-57.1 10.7-15.6 36.7-16.1 52.7 0 16 16.1 15.4 41.5 0 52.2-15.5 10.7-46.6 5.7-37.2 4.9zM125 125l6 6 6-6-6-6-6 6z"/></svg>
       <div class="gate-tip">Click to enter</div>
     </div>
@@ -221,7 +210,6 @@
 
   <main class="wrap" id="mainContent">
     <section class="center">
-      <!-- đổi ảnh avatar sang img/avt.jpg -->
       <div class="avatar"><img id="avatarImg" src="img/avt.jpg" onerror="this.onerror=null;this.src='https://i.pravatar.cc/300?img=68'" alt="avatar"></div>
       <div class="nick" id="nick">Chú Khói GM</div>
       <div class="tagline">hahahaha</div>
@@ -232,26 +220,23 @@
         <a href="https://playerduo.net/chukhoienret" aria-label="Playerdou" target="_blank" rel="noopener">
           <img class="ico" src="https://tse1.mm.bing.net/th/id/OIP.4xP4fsm-eA-QhMcJcVtiHwHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
         </a>
-
       </div>
     </section>
 
     <!-- Cards -->
     <section class="cards">
       <article class="card" data-url="https://example.com/bai-1">
-        <!-- Tự thử: a1.gif → a1.webp → a1.png → a1.jpg → a1.jpeg -->
         <img id="imgA1" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="card 1">
         <div class="badge">Nhấn để tải</div>
       </article>
 
       <article class="card" data-url="https://discord.gg/yourInvite">
-        <!-- Tự thử: a2.gif → a2.webp → a2.png → a2.jpg → a2.jpeg -->
         <img id="imgA2" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="card 2">
         <div class="badge">đẹp traiii</div>
       </article>
     </section>
 
-    <!-- Meta row (tooltip cho tim & mắt) -->
+    <!-- Meta row -->
     <div class="card-meta">
       <span class="heart tooltip" tabindex="0" aria-label="Likes">
         <i class="fa-solid fa-heart"></i> <span id="likesA">0</span>
@@ -282,7 +267,6 @@
           <button id="play"  title="Play/Pause"><i class="fa-solid fa-play"></i></button>
           <button id="fwd10" title="Tiến 10s"><i class="fa-solid fa-rotate-right"></i></button>
 
-          <!-- Volume group: hover mở rộng, mobile tap mở -->
           <div class="volume-group">
             <button id="mute"  title="Tắt tiếng"><i class="fa-solid fa-volume-high"></i></button>
             <input type="range" id="vol" class="vol" min="0" max="1" step="0.01" value="0.7" title="Âm lượng" />
@@ -294,16 +278,19 @@
   </main>
 
 <script>
-/* ===== GitHub config ===== */
-const GITHUB = {
-  token:"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", // ⚠️ Đừng commit token lên public repo
-  owner:"Mhanncte",
-  repo:"mhancte",
-  filePath:"view.json",
-  apiVersion:"2022-11-28"
+/* ====== Cấu hình số liệu tĩnh (không dùng token) ======
+   - baseViews / baseLikes: số hiển thị mặc định
+   - bumpViewOncePerBrowser: +1 view cho lần truy cập đầu tiên trên trình duyệt đó
+   - localLikeToggle: cho phép nhấn tim tăng/giảm cục bộ (lưu localStorage)
+*/
+const STATS = {
+  baseViews: 1234,
+  baseLikes: 56,
+  bumpViewOncePerBrowser: true,
+  localLikeToggle: true,
 };
 
-/* ===== Notice ===== */
+/* ====== Notice ====== */
 const note = document.getElementById('note');
 function showNote(msg,type='warn'){
   note.textContent=msg;
@@ -311,147 +298,83 @@ function showNote(msg,type='warn'){
   note.style.background=type==='ok'?'#0b2215cc':'#2b0d12cc';
   note.classList.add('show');
   clearTimeout(showNote._t);
-  showNote._t=setTimeout(()=>note.classList.remove('show'),6000);
+  showNote._t=setTimeout(()=>note.classList.remove('show'),4000);
 }
 
-/* ===== GitHub helpers ===== */
-function baseHeaders(){return{'Accept':'application/vnd.github+json','X-GitHub-Api-Version':GITHUB.apiVersion,'User-Agent':'noka-profile'};}
-function hasPAT(){return GITHUB.token && !GITHUB.token.includes('YOUR_PAT_HERE');}
-function authHeader(s){return hasPAT()?{'Authorization':`${s} ${GITHUB.token}`}:{ };}
+/* ====== Stats (Local only) ====== */
+const viewEl = document.getElementById('viewCount');
+const likesEl = document.getElementById('likesA');
+const likeBtn = document.getElementById('likeBtn');
 
-async function ghFetch(url,opt={},tryNoAuth=false){
-  const h0={...baseHeaders(),...(opt.headers||{})};
-  if(!hasPAT() && opt.method==='PUT') return new Response(null,{status:401,statusText:'No PAT configured'});
-  let r=await fetch(url,{...opt,headers:{...h0,...authHeader('token')}});
-  if(r.status===401) r=await fetch(url,{...opt,headers:{...h0,...authHeader('Bearer')}});
-  if(r.status===401 && tryNoAuth && opt.method!=='PUT') r=await fetch(url,{...opt,headers:h0});
-  return r;
-}
-const b64e=s=>btoa(unescape(encodeURIComponent(s)));
-const b64d=b=>decodeURIComponent(escape(atob((b||'').replace(/\n/g,''))));
-function normalizeSchema(j){
-  if('count'in j||'ips'in j){j={views:{count:j.count||0,ips:j.ips||[]},likes:{count:0,ips:[]}}}
-  if(!j.views)j.views={count:0,ips:[]};
-  if(!j.likes)j.likes={count:0,ips:[]};
-  j.views.ips=Array.isArray(j.views.ips)?j.views.ips:[]; j.likes.ips=Array.isArray(j.likes.ips)?j.likes.ips:[];
-  j.views.count=j.views.ips.length;
-  j.likes.count=j.likes.ips.length;
-  return j;
-}
-async function readFile(){
-  const url=`https://api.github.com/repos/${GITHUB.owner}/${GITHUB.repo}/contents/${GITHUB.filePath}`;
-  let r=await ghFetch(url,{method:'GET'},true);
-  if(r.status===404) return {json:{views:{count:0,ips:[]},likes:{count:0,ips:[]}},sha:null};
-  if(!r.ok){showNote(`GitHub READ lỗi: ${r.status} ${r.statusText}`);throw new Error(`read ${r.status}`);}
-  const d=await r.json();
-  let j;
-  try{ j=JSON.parse(b64d(d.content)) }catch{ j={views:{count:0,ips:[]},likes:{count:0,ips:[]}} }
-  return {json:normalizeSchema(j),sha:d.sha};
-}
-async function writeFile(j,oldSha,retry=true){
-  const url=`https://api.github.com/repos/${GITHUB.owner}/${GITHUB.repo}/contents/${GITHUB.filePath}`;
-  const body={message:`update stats ${new Date().toISOString()}`,content:b64e(JSON.stringify(j,null,2)),...(oldSha?{sha:oldSha}:{})};
-  let r=await ghFetch(url,{method:'PUT',headers:{...baseHeaders(),'Content-Type':'application/json'},body:JSON.stringify(body)});
-  if(r.status===409&&retry){const {sha:newSha}=await readFile();return writeFile(j,newSha,false)}
-  if(!r.ok){showNote(`GitHub WRITE lỗi: ${r.status} ${r.statusText}`);throw new Error(`write ${r.status}`)}
-  return r.json();
-}
-
-/* ===== Visitor ID ===== */
-async function sha256Hex(s){const e=new TextEncoder().encode(s);const b=await crypto.subtle.digest('SHA-256',e);return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
-async function getVisitorHash(){
-  try{const r=await fetch('https://api.ipify.org?format=json',{cache:'no-store'});if(r.ok){const {ip}=await r.json();return sha256Hex('ip:'+ip)}}catch{}
-  try{const r=await fetch('https://api64.ipify.org?format=json',{cache:'no-store'});if(r.ok){const {ip}=await r.json();return sha256Hex('ip:'+ip)}}catch{}
-  let vid=localStorage.getItem('noka_vid');
-  if(!vid){vid=[Date.now(),Math.random(),navigator.userAgent,navigator.language,Intl.DateTimeFormat().resolvedOptions().timeZone].join('|');localStorage.setItem('noka_vid',vid)}
-  return sha256Hex('vid:'+vid)
-}
-
-/* ===== Stats ===== */
-const viewEl=document.getElementById('viewCount');
-const likesEl=document.getElementById('likesA');
-const likeBtn=document.getElementById('likeBtn');
-let VISITOR_HASH=null;
-
-async function initStats(){
-  try{
-    VISITOR_HASH=await getVisitorHash();
-    let {json,sha}=await readFile();
-
-    if(!json.views.ips.includes(VISITOR_HASH)){
-      json.views.ips.push(VISITOR_HASH);
-      json.views.count=json.views.ips.length;
-      const res=await writeFile(json,sha); sha=res.content?.sha||sha;
+function initStats(){
+  // Lượt xem: cộng 1 nếu lần đầu vào site trên trình duyệt này (nếu bật)
+  let views = STATS.baseViews;
+  const seenKey = 'ckgm_seen';
+  if (STATS.bumpViewOncePerBrowser) {
+    const seen = localStorage.getItem(seenKey);
+    if (!seen) {
+      views += 1;
+      localStorage.setItem(seenKey, '1');
     }
-
-    viewEl.textContent=json.views.ips.length;
-    likesEl.textContent=json.likes.ips.length;
-    likeBtn.classList.toggle('liked',json.likes.ips.includes(VISITOR_HASH));
-
-    likeBtn.onclick=async()=>{
-      try{
-        let {json:fresh,sha:fsha}=await readFile();
-        const has=fresh.likes.ips.includes(VISITOR_HASH);
-        if(has) fresh.likes.ips=fresh.likes.ips.filter(x=>x!==VISITOR_HASH); else fresh.likes.ips.push(VISITOR_HASH);
-        fresh.likes.count=fresh.likes.ips.length;
-        await writeFile(fresh,fsha);
-        likesEl.textContent=fresh.likes.count;
-        likeBtn.classList.toggle('liked',!has);
-      }catch{ showNote('Không ghi được like. Kiểm tra PAT/permission.'); }
-    };
-
-    if(!hasPAT()) showNote('PAT chưa cấu hình — chỉ đọc được, KHÔNG ghi lên GitHub.');
-  }catch(e){
-    console.warn(e); viewEl.textContent='—'; showNote('Không đọc được view.json — kiểm tra PAT/permission/Live Server');
   }
+  viewEl.textContent = views.toLocaleString('vi-VN');
+
+  // Likes cục bộ: lưu key theo site
+  let likes = STATS.baseLikes;
+  const likeKey = 'ckgm_liked';
+  const liked = localStorage.getItem(likeKey) === '1';
+  if (liked) {
+    likeBtn.classList.add('liked');
+    // tuỳ chọn: hiển thị baseLikes+1 nếu đã like
+    likes += 1;
+  }
+  likesEl.textContent = likes.toLocaleString('vi-VN');
+
+  likeBtn.onclick = () => {
+    if (!STATS.localLikeToggle) {
+      showNote('Like ở chế độ cố định.', 'warn');
+      return;
+    }
+    const isLiked = likeBtn.classList.toggle('liked');
+    let current = parseInt(likesEl.textContent.replace(/\./g,'')) || STATS.baseLikes;
+    current += isLiked ? 1 : -1;
+    likesEl.textContent = current.toLocaleString('vi-VN');
+    localStorage.setItem(likeKey, isLiked ? '1' : '0');
+  };
 }
 
-/* ===== Card click → open link ===== */
 /* ===== Card click → download/open link ===== */
 function initCardLinks(){
   document.querySelectorAll('.card[data-url]').forEach((card, index) => {
     const url = card.dataset.url; 
     if(!url) return;
-    
-    // Card đầu tiên - download ảnh
+
     if(index === 0) {
       const img = card.querySelector('img');
-      card.addEventListener('click', () => {
+      const doDownload = () => {
         const a = document.createElement('a');
         a.href = img.src;
         a.download = 'a1' + img.src.substring(img.src.lastIndexOf('.'));
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-      });
-      
+      };
+      card.addEventListener('click', doDownload);
       card.addEventListener('keydown', e => {
-        if(e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          const a = document.createElement('a');
-          a.href = img.src;
-          a.download = 'a1' + img.src.substring(img.src.lastIndexOf('.'));
-          document.body.appendChild(a);
-          a.click(); 
-          document.body.removeChild(a);
-        }
+        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doDownload(); }
+      });
+    } else {
+      const openIt = () => window.open(url, '_blank', 'noopener');
+      card.addEventListener('click', openIt);
+      card.addEventListener('keydown', e => {
+        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openIt(); }
       });
     }
-    // Các card còn lại - mở link
-    else {
-      card.addEventListener('click', () => window.open(url, '_blank', 'noopener'));
-      card.addEventListener('keydown', e => {
-        if(e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          window.open(url, '_blank', 'noopener');
-        }
-      });
-    }
-    
     card.tabIndex = 0;
     card.setAttribute('role', 'link');
   });
 }
+
 /* ===== Player + Auto Replay ===== */
 const bgVideoEl=document.getElementById('bgVideo'); bgVideoEl.muted=true;
 bgVideoEl.addEventListener('ended',()=>{ bgVideoEl.currentTime=0; bgVideoEl.play().catch(()=>{}); });
@@ -490,35 +413,25 @@ audio.addEventListener('loadedmetadata',()=>{timeEl.textContent=`${formatTime(au
 audio.addEventListener('timeupdate',()=>{ if(audio.duration) seek.value=(audio.currentTime/audio.duration)*100; timeEl.textContent=`${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`; });
 seek.addEventListener('input',()=>{ if(audio.duration) audio.currentTime=(seek.value/100)*audio.duration; });
 
-/* ===== Volume hover-expand + mobile tap-to-open ===== */
 const volumeGroup = document.querySelector('.volume-group');
-
 muteBtn.addEventListener('click', (e) => {
   const supportsHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
-
   if (!supportsHover && !volumeGroup.classList.contains('open')) {
     volumeGroup.classList.add('open');
     setTimeout(() => volEl.focus(), 0);
     e.preventDefault();
     return;
   }
-
   audio.muted = !audio.muted;
   updateSpeakerIcon();
 });
-
 volEl.addEventListener('input',()=>{
   audio.volume=parseFloat(volEl.value);
   if(audio.volume>0&&audio.muted) audio.muted=false;
   updateSpeakerIcon();
 });
 audio.addEventListener('volumechange',updateSpeakerIcon);
-
-// Thu gọn khi click ra ngoài (mobile)
-document.addEventListener('click',(ev)=>{
-  if(!volumeGroup.contains(ev.target)) volumeGroup.classList.remove('open');
-});
-
+document.addEventListener('click',(ev)=>{ if(!volumeGroup.contains(ev.target)) volumeGroup.classList.remove('open'); });
 document.getElementById('rew10').addEventListener('click',()=>{ audio.currentTime=Math.max(0,audio.currentTime-10); });
 document.getElementById('fwd10').addEventListener('click',()=>{ audio.currentTime=Math.min(audio.duration||0,audio.currentTime+10); });
 loadTrack();
@@ -567,8 +480,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   setupNick();
   initStats();
   initCardLinks();
-
-  // nạp ảnh/gif cho 2 card theo tên base a1/a2
   setSmartSrc(document.getElementById('imgA1'),'a1');
   setSmartSrc(document.getElementById('imgA2'),'a2');
 });
